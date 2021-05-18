@@ -2,8 +2,16 @@
  <%= f.label :title %><br>
  <%= f.text_field :title %> <br>
  <br>
+<% @post.errors.full_messages_for(:title).each do |message| %>
+  <div><%= message %></div>
+  <% end %>
+
  <%= f.label :body %><br>
  <%= f.text_area :body %><br>
  <br>
+ <% @post.errors.full_messages_for(:body).each do |message| %>
+    <div><%= message %></div>
+    <% end %>
+
  <%= f.submit %>
  <% end %>

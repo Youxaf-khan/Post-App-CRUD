@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  layout 'standard'
+  #layout 'standard'
   before_action :find_post, only: [:show,:edit,:update,:destroy]
 
   def index
@@ -15,7 +15,7 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post
     else
-      rende 'new'
+      render 'new'
     end
   end
 
