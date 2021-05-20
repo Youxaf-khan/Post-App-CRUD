@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   def create
     @comment = @post.comments.create(comment_params)
     redirect_to post_path(@post)
-
   end
 
   def edit
