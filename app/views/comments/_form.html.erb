@@ -1,5 +1,4 @@
-<%= form_with model: [ @post, @post.comments.build ] do |form| %>
-  <hr>
+<%= form_with model: [ @post, @post.comments.build] do |form| %>
   <p>
     <%= form.label :commenter %><br>
     <%= form.text_field :commenter %>

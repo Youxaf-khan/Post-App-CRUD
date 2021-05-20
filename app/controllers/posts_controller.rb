@@ -28,18 +28,17 @@ class PostsController < ApplicationController
   end
 
   def update
-  if @post.update(post_params)
+   if @post.update(post_params)
     redirect_to @post
-  else
+   else
     render 'edit'
+   end
   end
- end
 
- def destroy
+  def destroy
   @post.destroy
   redirect_to root_path
-
- end
+  end
 
   private
 
@@ -49,8 +48,6 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body)
-
   end
 
 end
-

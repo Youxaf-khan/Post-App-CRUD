@@ -1,22 +1,28 @@
 class CommentsController < ApplicationController
-  before_action :find_post, only: [:edit,:show,:update,:create]
-  before_action :find_comment, only: [:destroy]
+  before_action :find_post, only: [:update,:create]
+  before_action :find_comment, only: [:destroy,:edit,:update]
   def create
     @comment = @post.comments.create(comment_params)
     redirect_to post_path(@post)
 
   end
 
-
   def edit
 
+  end
+
+  def update
+   if @comment.update(comment_params)
+    redirect_to @post
+   else
+    render 'comments/edit'
+   end
   end
 
   def destroy
     @comment.destroy
     redirect_to root_path
   end
-
 
   private
 
